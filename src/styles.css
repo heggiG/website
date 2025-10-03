@@ -1,1 +1,22 @@
-/* You can add global styles to this file, and also import other style files */
+html,
+body {
+  background-color: var(--main-background);
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
+
+app-root {
+  height: 100%;
+}
+
+:root {
+  --main-background: #211a1d;
+  --light-background: #6320ee;
+  --main-light: #8075ff;
+  --accent-color: #f8f0fb;
+  --accent-secondary: #cad5ca;
+}
