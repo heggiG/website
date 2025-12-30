@@ -1,7 +1,10 @@
-<div>
+<div class="outer">
+  <div class="inner">
+    <h1>Login</h1>
   <form>
     <input placeholder="username" [(ngModel)]="username" name="username">
     <input placeholder="password" type="password" [(ngModel)]="password" name="password">
     <button (click)="submit()">Log In</button>
   </form>
+  </div>
 </div>
