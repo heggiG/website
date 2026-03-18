@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'login',
+  selector: 'app-login',
   imports: [FormsModule],
   templateUrl: './login.html',
   styleUrl: './login.css',
@@ -25,7 +25,7 @@ export class Login {
     }
     this.authService.login(username, password).subscribe((res) => {
       window.alert(`Logged in as ${res.userName}`);
-      this.router.navigate([`/home/${res.userName}`]);
+      this.router.navigate(['home', this.username()]);
     });
   }
 }

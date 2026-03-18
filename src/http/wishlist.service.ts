@@ -5,8 +5,12 @@ import { Observable } from 'rxjs';
 
 export interface WishlistEntry {
   id?: number;
-  title: string;
+  name: string;
   description: string;
+  link: string;
+  prio: number;
+  price: number;
+  type: string;
 }
 
 @Injectable({
@@ -14,14 +18,14 @@ export interface WishlistEntry {
 })
 export class WishlistService {
   private http = inject(HttpClient);
-  private readonly apiUrl = 'http://localhost:3000/wishlist'; // Anpassen an dein Backend
+  private readonly apiUrl = 'http://localhost:3000/api/v1/wishlist';
 
   getEntries(): Observable<WishlistEntry[]> {
-    return this.http.get<WishlistEntry[]>(this.apiUrl);
+    return this.http.get<WishlistEntry[]>(`${this.apiUrl}/all`);
   }
 
   createEntry(entry: WishlistEntry): Observable<WishlistEntry> {
-    return this.http.post<WishlistEntry>(this.apiUrl, entry);
+    return this.http.post<WishlistEntry>(`${this.apiUrl}/create`, entry);
   }
 
   deleteEntry(id: number): Observable<void> {

@@ -1,0 +1,156 @@
+/* src/ui/list/list.css */
+
+/* --- Container für das Eingabeformular --- */
+.add-entry-container {
+  background: #ffffff;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 600px;
+  margin: 0 auto 40px auto;
+}
+
+.add-entry-container h3 {
+  margin: 0 0 8px 0;
+  font-size: 1.25rem;
+  color: #1f2937;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+/* Modernes Styling für die Input-Felder */
+.add-entry-container input {
+  padding: 12px 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: #f9fafb;
+  transition: all 0.2s ease-in-out;
+}
+
+.add-entry-container input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+/* Moderner Button */
+.add-entry-container button {
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  padding: 14px 24px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+  margin-top: 8px;
+}
+
+.add-entry-container button:hover {
+  background-color: #2563eb;
+}
+
+.add-entry-container button:active {
+  transform: scale(0.98);
+}
+
+/* --- Container für die Wunschliste (Grid) --- */
+.wishlist-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+  padding: 10px;
+}
+
+/* --- Styling für eine einzelne Wunsch-Karte --- */
+.wish-item {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.wish-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.wish-item h3 {
+  margin: 0 0 12px 0;
+  font-size: 1.25rem;
+  color: #111827;
+}
+
+/* Kleines Badge für die Priorität */
+.prio-badge {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  background-color: #fee2e2;
+  color: #ef4444;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 9999px;
+}
+
+.wish-item .description {
+  color: #4b5563;
+  margin: 0 0 16px 0;
+  line-height: 1.5;
+  flex-grow: 1; /* Schiebt die Meta-Daten ans Ende der Karte */
+}
+
+.wish-item .meta-data {
+  font-size: 0.875rem;
+  color: #6b7280;
+  padding-top: 16px;
+  border-top: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.wish-item .price {
+  font-weight: 600;
+  color: #10b981; /* Leichtes Grün für den Preis */
+}
+
+.wish-item .shop-link {
+  display: inline-block;
+  margin-top: 16px;
+  color: #3b82f6;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.wish-item .shop-link:hover {
+  color: #1d4ed8;
+  text-decoration: underline;
+}
+
+/* Styling für die Fehlermeldung unter dem Input */
+.error-msg {
+  color: #ef4444; /* Rot */
+  font-size: 0.85rem;
+  margin-top: -10px; /* Rückt nah an das Input-Feld heran */
+  margin-bottom: 8px;
+}
+
+/* Roter Rahmen für ungültige Felder, die der Nutzer bereits angeklickt hat */
+input.ng-invalid.ng-touched {
+  border-color: #ef4444;
+}
+input.ng-invalid.ng-touched:focus {
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2);
+}
