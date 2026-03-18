@@ -1,6 +1,6 @@
 import { inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { tap } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import { Router } from '@angular/router';
 
 interface LoginResponse {
@@ -55,5 +55,20 @@ export class AuthService {
         this.loggedInUser = { access_token: session, ...res };
         this.router.navigate([`/home/${res.userName}`]);
       });
+  }
+
+  // Neue Registrierungs-Methode
+  register(
+    username: string,
+    password: string,
+    firstname: string,
+    lastname: string,
+  ): Observable<any> {
+    return this.http.post('http://localhost:3000/auth/register', {
+      firstname: firstname,
+      lastname: lastname,
+      username: username,
+      password: password,
+    });
   }
 }
