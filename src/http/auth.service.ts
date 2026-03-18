@@ -38,6 +38,10 @@ export class AuthService {
     return !!this.loggedInUser;
   }
 
+  public getCurrentToken(): string | undefined {
+    return this.loggedInUser?.access_token;
+  }
+
   private getFromSessionCookie() {
     const session = document.cookie.split(';').find((c) => c.startsWith('SESSIONID='));
     if (!session) {
