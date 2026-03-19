@@ -5,6 +5,7 @@
   flex-direction: column;
 }
 
-top-bar {
-  height: 6.5%
+app-top-bar {
+  height: 6%;
+  margin-bottom: 30px;
 }
